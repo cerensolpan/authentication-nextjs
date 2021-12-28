@@ -3,13 +3,19 @@ import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
 
-export default function Home() {
+export default ({content}) =>{
   return (
     <div>
-      <h1>Index Page</h1>
-      <Link href="/notes">
-        Note
-      </Link>
+      <h1>{content.title}</h1>
     </div>
   )
+}
+export function getStaticProps(){
+  return{
+    props:{
+      content:{
+        title: 'This is my really nice app'
+      }
+    }
+  }
 }
